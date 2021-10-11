@@ -5,12 +5,16 @@ import { NextApiRequest } from "next";
 const apiKey = process.env.MUSIC_API_KEY || "";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  const { method } = req;
+  const {
+    method,
+    query: { genre },
+  } = req;
 
   switch (method) {
     case "GET":
       try {
         const options = {
+          params: { term: genre, locale: "en-US", offset: "0", limit: "20" },
           headers: {
             "x-rapidapi-host": "shazam.p.rapidapi.com",
             "x-rapidapi-key": apiKey,
@@ -18,7 +22,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         };
 
         const response = await axios.get(
-          "https://shazam.p.rapidapi.com/charts/list",
+          "https://shazam.p.rapidapi.com/search",
           options
         );
 

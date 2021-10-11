@@ -1,6 +1,6 @@
 interface NextRequest extends NextApiRequest {
   query: {
-    id: [number, number];
+    position: [number, number];
   };
   method: string;
 }
