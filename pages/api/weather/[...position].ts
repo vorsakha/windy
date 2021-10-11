@@ -6,10 +6,10 @@ const apiKey = process.env.WEATHER_API_KEY;
 export default async (req: NextRequest, res: NextApiResponse) => {
   const {
     method,
-    query: { id },
+    query: { position },
   } = req;
 
-  const [lat, lon] = id;
+  const [lat, lon] = position;
 
   switch (method) {
     case "GET":
