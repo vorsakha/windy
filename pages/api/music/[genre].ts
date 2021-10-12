@@ -26,11 +26,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
           options
         );
 
-        res.setHeader(
-          "Cache-Control",
-          "s-maxage=86400, stale-while-revalidate"
-        );
-
         res.status(200).send(response.data);
       } catch (error: any) {
         return res.status(400).send(error.message);
