@@ -4,3 +4,12 @@ interface NextRequest extends NextApiRequest {
   };
   method: string;
 }
+interface WeatherTypes {
+  resDataObj: {
+    city: string;
+    country: string;
+    playlistType: string;
+    temperature: number;
+  };
+  loading: boolean;
+}
