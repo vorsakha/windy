@@ -3,8 +3,8 @@ import { useCallback, useEffect, useState } from "react";
 import { MUSIC_URL } from "../constants";
 
 const useSongList = (temperature: number) => {
-  const [playlist, setPlaylist] = useState({
-    playlistData: [],
+  const [playlist, setPlaylist] = useState<any>({
+    playlistData: null,
     loading: true,
   });
 
