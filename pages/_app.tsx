@@ -6,13 +6,16 @@ import type { AppProps } from "next/app";
 import AlertProvider from "../context/AlertContext";
 
 import Layout from "../components/Layout";
+import TemperatureProvider from "../context/TemperatureContext";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <AlertProvider>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <TemperatureProvider>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </TemperatureProvider>
     </AlertProvider>
   );
 }
