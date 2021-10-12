@@ -14,7 +14,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     case "GET":
       try {
         const options = {
-          params: { term: genre, locale: "en-US", offset: "0", limit: "20" },
+          params: { term: genre, locale: "en-US", offset: "0", limit: "5" },
           headers: {
             "x-rapidapi-host": "shazam.p.rapidapi.com",
             "x-rapidapi-key": apiKey,
