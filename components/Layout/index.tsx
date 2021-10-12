@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Alert from "../common/Alert";
+import SearchBar from "../SearchBar";
 
 const Layout: React.FC = ({ children }) => {
   return (
@@ -12,8 +13,8 @@ const Layout: React.FC = ({ children }) => {
             <Link href="/">WINDY</Link>
           </div>
           <div>
-            <Link href="/favoritas">Favoritas</Link>
-            {/* <Link href="/procurar">Favoritas</Link> */}
+            <Link href="/favs">Favoritas</Link>
+            <SearchBar />
           </div>
         </nav>
       </header>
