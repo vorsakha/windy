@@ -5,7 +5,7 @@ interface NextRequest extends NextApiRequest {
   method: string;
 }
 interface WeatherTypes {
-  resDataObj: {
+  weatherObj: {
     city: string;
     country: string;
     playlistType: string;

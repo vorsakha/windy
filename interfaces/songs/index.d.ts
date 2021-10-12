@@ -1,4 +1,39 @@
 interface SongTypes {
+  hits: {
+    track: {
+      key: string;
+      title: string;
+      subtitle: string;
+      images: {
+        coverart: string;
+      };
+      share: {
+        snapchat: string;
+      };
+    };
+  }[];
+}
+interface SongListTypes {
+  playlistData: {
+    tracks: {
+      hits: {
+        track: {
+          key: string;
+          title: string;
+          subtitle: string;
+          images: {
+            coverart: string;
+          };
+          share: {
+            snapchat: string;
+          };
+        };
+      }[];
+    };
+  };
+  loading: boolean;
+}
+interface SongBoxTypes {
   track: {
     key: string;
     title: string;
@@ -9,5 +44,16 @@ interface SongTypes {
     share: {
       snapchat: string;
     };
+  };
+}
+interface SongType {
+  key: string;
+  title: string;
+  subtitle: string;
+  images: {
+    coverart: string;
+  };
+  share: {
+    snapchat: string;
   };
 }
