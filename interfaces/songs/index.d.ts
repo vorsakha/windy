@@ -49,7 +49,6 @@ interface SongBoxTypes {
     temperature?: number;
   };
   fav?: boolean;
-  idx: number;
 }
 interface SongType {
   key: string;
