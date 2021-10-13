@@ -26,7 +26,9 @@ const useSearch = () => {
     e.preventDefault();
 
     const { lat, lon } = formInput;
-    router.push(`search/${lat}/${lon}`);
+    const url = `/search/${lat}/${lon}`;
+
+    router.push(url);
   };
 
   return { handleSubmit, handleInputChange, formInput };
