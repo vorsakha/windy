@@ -3,8 +3,14 @@ import Link from "next/link";
 import Alert from "../Alert";
 
 import { WiStrongWind as LogoIcon } from "@react-icons/all-files/wi/WiStrongWind";
+import { useRouter } from "next/dist/client/router";
 
 const Layout: React.FC = ({ children }) => {
+  const router = useRouter();
+
+  const isHome = router.pathname === "/";
+  const isFavs = router.pathname === "/favs";
+
   return (
     <div className="min-w-screen">
       <Alert />
@@ -20,10 +26,22 @@ const Layout: React.FC = ({ children }) => {
           </div>
           <div>
             <Link href="/">
-              <a className="py-4 mr-6 font-bold hover:text-blue-400">Home</a>
+              <a
+                className={`${
+                  isHome ? "text-blue-400" : "text-black"
+                } py-4 mr-6 font-bold hover:text-blue-400`}
+              >
+                Home
+              </a>
             </Link>
             <Link href="/favs">
-              <a className="py-4 font-bold hover:text-blue-400">Favoritas</a>
+              <a
+                className={`${
+                  isFavs ? "text-blue-400" : "text-black"
+                } py-4 font-bold hover:text-blue-400`}
+              >
+                Favoritas
+              </a>
             </Link>
           </div>
         </nav>
