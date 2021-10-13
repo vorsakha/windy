@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Banner from "../components/Banner";
+import LoadingSpinner from "../components/common/LoadingSpinner";
 import SongList from "../components/SongList";
 import useCurrentLocation from "../hooks/useCurrentLocation";
 import useSongList from "../hooks/useSongList";
@@ -9,7 +10,7 @@ const Home = () => {
   const [lat, lon] = useCurrentLocation();
   const weather = useWeather(lat, lon);
 
-  const songList = useSongList(weather.weatherObj.temperature);
+  const songList = useSongList(weather.weatherObj.playlistType);
 
   return (
     <div>
@@ -23,11 +24,17 @@ const Home = () => {
       </Head>
 
       <main>
-        <Banner weatherObj={weather.weatherObj} loading={weather.loading} />
-        <SongList
-          playlistData={songList.playlistData}
-          loading={songList.loading}
-        />
+        {weather.loading || songList.loading ? (
+          <LoadingSpinner />
+        ) : (
+          <>
+            <Banner weatherObj={weather.weatherObj} loading={weather.loading} />
+            <SongList
+              playlistData={songList.playlistData}
+              loading={songList.loading}
+            />
+          </>
+        )}
       </main>
     </div>
   );
