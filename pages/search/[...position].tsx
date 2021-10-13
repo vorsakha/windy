@@ -1,6 +1,7 @@
 import Head from "next/head";
 import React from "react";
 import Banner from "../../components/Banner";
+import LoadingSpinner from "../../components/common/LoadingSpinner";
 import SongList from "../../components/SongList";
 import useParams from "../../hooks/useParams";
 import useSongList from "../../hooks/useSongList";
@@ -12,8 +13,7 @@ const Search = () => {
 
   const weather = useWeather(lat, lon);
 
-  const songList = useSongList(weather.weatherObj.temperature);
-  console.log(songList);
+  const songList = useSongList(weather.weatherObj.playlistType);
 
   return (
     <div>
@@ -26,11 +26,17 @@ const Search = () => {
       </Head>
 
       <main>
-        <Banner weatherObj={weather.weatherObj} loading={weather.loading} />
-        <SongList
-          playlistData={songList.playlistData}
-          loading={songList.loading}
-        />
+        {weather.loading || songList.loading ? (
+          <LoadingSpinner />
+        ) : (
+          <>
+            <Banner weatherObj={weather.weatherObj} loading={weather.loading} />
+            <SongList
+              playlistData={songList.playlistData}
+              loading={songList.loading}
+            />
+          </>
+        )}
       </main>
     </div>
   );
