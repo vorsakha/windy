@@ -8,7 +8,7 @@ const Banner = ({ weatherObj, loading }: WeatherTypes) => {
   return (
     <div>
       <SearchBar />
-      {loading ? (
+      {loading || weatherObj.city === "" ? (
         <LoadingSpinner />
       ) : (
         <div className="flex items-center justify-center gap-16 p-8">
