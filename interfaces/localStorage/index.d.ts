@@ -6,4 +6,5 @@ interface LocalStorageTypes {
   city: string;
   share: { snapchat: string };
   key: string;
+  category: string;
 }

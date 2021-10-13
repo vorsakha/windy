@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 const useFavs = () => {
   const [favs, setFavs] = useState<SongType[] | null>(null);
+  const [favsByDate, setFavsByDate] = useState<SongType[] | null>(null);
 
   const allStorage = () => {
     let values: any = [];
@@ -25,7 +26,20 @@ const useFavs = () => {
     allStorage();
   }, []);
 
-  return favs;
+  useEffect(() => {
+    const favsRaw = favs || [];
+
+    const filterByDate = favsRaw.sort((a, b) => {
+      const dateA: any = new Date(a.date);
+      const dateB: any = new Date(b.date);
+
+      return dateB - dateA;
+    });
+
+    setFavsByDate(filterByDate);
+  }, [favs]);
+
+  return favsByDate;
 };
 
 export default useFavs;

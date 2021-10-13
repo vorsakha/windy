@@ -47,6 +47,7 @@ interface SongBoxTypes {
     date?: string;
     city?: string;
     temperature?: number;
+    category?: string;
   };
   fav?: boolean;
 }
@@ -60,5 +61,5 @@ interface SongType {
   share: {
     snapchat: string;
   };
-  data: string;
+  date: string;
 }

@@ -1,7 +1,7 @@
 import { memo } from "react";
 import useFavIcon from "../../hooks/useFavIcon";
 import useLocalStorage from "../../hooks/useLocalStorage";
-import newDate from "../../utils/newDate";
+import newDate from "../../utils/handleDate";
 
 const Fav = ({
   items,
@@ -14,7 +14,7 @@ const Fav = ({
 }) => {
   const { icon, handleGetIcon } = useFavIcon(items.key);
   const { handleSaveToStorage } = useLocalStorage();
-  const date = newDate();
+  const date = new Date();
   const favItems = { ...items, date };
 
   return (
