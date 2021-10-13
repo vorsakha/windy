@@ -1,5 +1,5 @@
 import React from "react";
-import SongBox from "../common/SongBox";
+import SongBox from "../SongBox";
 
 const SongList = ({ playlistData }: SongListTypes) => {
   return (

@@ -1,6 +1,6 @@
 import React from "react";
 import LoadingSpinner from "../components/common/LoadingSpinner";
-import SongBox from "../components/common/SongBox";
+import SongBox from "../components/Song/SongBox";
 import useFavs from "../hooks/useFavs";
 
 const Favs = () => {

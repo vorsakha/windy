@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import Alert from "../common/Alert";
+import Alert from "../Alert";
 import SearchBar from "../SearchBar";
 
 const Layout: React.FC = ({ children }) => {

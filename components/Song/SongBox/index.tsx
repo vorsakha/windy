@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { TemperatureContext } from "../../../context/TemperatureContext";
-import Fav from "../Fav";
-import LoadingSpinner from "../LoadingSpinner";
+import Fav from "../../Fav";
+import LoadingSpinner from "../../common/LoadingSpinner";
 
 const SongBox = ({ track, fav, idx }: SongBoxTypes) => {
   const { images, share, subtitle, title, key, date } = track;

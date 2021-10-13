@@ -2,7 +2,7 @@ import Head from "next/head";
 import React from "react";
 import Banner from "../../components/Banner";
 import LoadingSpinner from "../../components/common/LoadingSpinner";
-import SongList from "../../components/SongList";
+import SongList from "../../components/Song/SongList";
 import useParams from "../../hooks/useParams";
 import useSongList from "../../hooks/useSongList";
 import useWeather from "../../hooks/useWeather";

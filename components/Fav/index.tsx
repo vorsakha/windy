@@ -1,7 +1,7 @@
 import { memo } from "react";
-import useFavIcon from "../../../hooks/useFavIcon";
-import useLocalStorage from "../../../hooks/useLocalStorage";
-import newDate from "../../../utils/newDate";
+import useFavIcon from "../../hooks/useFavIcon";
+import useLocalStorage from "../../hooks/useLocalStorage";
+import newDate from "../../utils/newDate";
 
 const Fav = ({
   items,
