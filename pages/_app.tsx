@@ -7,16 +7,19 @@ import AlertProvider from "../context/AlertContext";
 
 import Layout from "../components/Layout";
 import TemperatureProvider from "../context/TemperatureContext";
+import LocalDataProvider from "../context/LocalDataContext";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <AlertProvider>
-      <TemperatureProvider>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </TemperatureProvider>
-    </AlertProvider>
+    <LocalDataProvider>
+      <AlertProvider>
+        <TemperatureProvider>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </TemperatureProvider>
+      </AlertProvider>
+    </LocalDataProvider>
   );
 }
 export default MyApp;
