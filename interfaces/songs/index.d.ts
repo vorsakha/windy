@@ -61,5 +61,5 @@ interface SongType {
   share: {
     snapchat: string;
   };
-  data: string;
+  date: string;
 }
