@@ -1,5 +1,5 @@
-function newDate() {
-  const data = new Date(),
+function handleDate(newDate: any) {
+  const data = new Date(newDate),
     day = data.getDate().toString(),
     dayF = day.length == 1 ? "0" + day : day,
     month = (data.getMonth() + 1).toString(),
@@ -8,4 +8,4 @@ function newDate() {
   return dayF + "/" + monthF + "/" + year;
 }
 
-export default newDate;
+export default handleDate;
