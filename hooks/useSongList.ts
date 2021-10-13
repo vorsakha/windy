@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import { MUSIC_URL } from "../constants";
 import { LocalDataContext } from "../context/LocalDataContext";
 
-const useSongList = (playlistType: string, home: boolean) => {
+const useSongList = (playlistType: string, home?: boolean) => {
   const [playlist, setPlaylist] = useState<any>({
     playlistData: null,
     loading: true,
