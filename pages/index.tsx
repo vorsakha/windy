@@ -35,7 +35,7 @@ const Home = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
+      <main className="min-h-total">
         {weather.loading || songList.loading ? (
           <LoadingSpinner />
         ) : (
