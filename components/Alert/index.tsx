@@ -1,5 +1,5 @@
 import { useContext, useEffect } from "react";
-import { AlertContext } from "../../../context/AlertContext";
+import { AlertContext } from "../../context/AlertContext";
 
 const Alert = () => {
   const context = useContext(AlertContext);
@@ -18,7 +18,7 @@ const Alert = () => {
   return (
     <>
       {context?.alert.active && (
-        <div className="fixed z-50 right-4 top-4 p-1 px-2 text-sm text-gray-200 rounded font-mono font-bold bg-purple-700">
+        <div className="fixed z-50 right-4 top-4 p-1 px-2 text-sm text-gray-200 rounded font-mono font-bold bg-blue-700">
           {context?.alert.msg}
         </div>
       )}

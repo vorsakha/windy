@@ -1,26 +1,35 @@
 import axios from "axios";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useContext, useEffect, useState } from "react";
 import { WEATHER_URL } from "../constants";
+import { TemperatureContext } from "../context/TemperatureContext";
 
-const useWeather = (lat: number, lon: number) => {
+const useWeather = (lat: number | string, lon: number | string) => {
   const [weather, setWeather] = useState<WeatherTypes>({
-    resDataObj: { city: "", country: "", playlistType: "", temperature: 0 },
+    weatherObj: { city: "", country: "", playlistType: "", temperature: 0 },
     loading: true,
   });
+  const [error, setError] = useState(false);
+
+  const context = useContext(TemperatureContext);
 
   const getWeather = useCallback(async () => {
     try {
+      setError(false);
+
       if (lat !== undefined && lon !== undefined) {
         const response = await axios.get(`${WEATHER_URL}/${lat}/${lon}`);
 
         const responseData = response.data;
 
-        setWeather({ resDataObj: responseData, loading: false });
+        setWeather({ weatherObj: responseData, loading: false });
+
+        context?.setTemperature(responseData);
 
         return;
       }
     } catch (error: any) {
       console.log(error.message);
+      if (error) setError(true);
     }
   }, [lat, lon]);
 
@@ -32,9 +41,9 @@ const useWeather = (lat: number, lon: number) => {
     mounted = false;
   }, [getWeather]);
 
-  const { resDataObj, loading } = weather;
+  const { weatherObj, loading } = weather;
 
-  return { resDataObj, loading };
+  return { weatherObj, loading, error };
 };
 
 export default useWeather;

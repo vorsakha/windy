@@ -1,13 +1,16 @@
 import Head from "next/head";
-import Banner from "../components/Banner";
-import LoadingSpinner from "../components/common/LoadingSpinner";
-import SongList from "../components/Song/SongList";
-import useCurrentLocation from "../hooks/useCurrentLocation";
-import useSongList from "../hooks/useSongList";
-import useWeather from "../hooks/useWeather";
+import React from "react";
+import Banner from "../../components/Banner";
+import LoadingSpinner from "../../components/common/LoadingSpinner";
+import SongList from "../../components/Song/SongList";
+import useParams from "../../hooks/useParams";
+import useSongList from "../../hooks/useSongList";
+import useWeather from "../../hooks/useWeather";
 
-const Home = () => {
-  const [lat, lon] = useCurrentLocation();
+const Search = () => {
+  const params = useParams();
+  const [lat, lon] = params;
+
   const weather = useWeather(lat, lon);
 
   const songList = useSongList(weather.weatherObj.playlistType);
@@ -15,12 +18,11 @@ const Home = () => {
   return (
     <div>
       <Head>
-        <title>Windy</title>
+        <title>Search | Windy</title>
         <meta
           name="description"
           content="Let the weather choose your music for you."
         />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
@@ -40,4 +42,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Search;
