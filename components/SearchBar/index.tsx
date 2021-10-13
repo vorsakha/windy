@@ -13,7 +13,7 @@ const SearchBar = () => {
     <div className="flex flex-col items-center justify-center w-full flex-1 md:px-20 text-center">
       <div className="w-full max-w-md">
         <form className="px-6 sm:px-12 p-4" onSubmit={(e) => handleSubmit(e)}>
-          <h1 className="font-bold text-2xl p-4">Procure Musicas</h1>
+          <h1 className="font-bold text-2xl p-4">Procure Músicas</h1>
           <input
             className="shadow text-gray-700 appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:ring ring-1 ring-black ring-opacity-5 mb-2"
             type="text"
