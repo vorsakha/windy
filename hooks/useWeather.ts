@@ -8,10 +8,14 @@ const useWeather = (lat: number | string, lon: number | string) => {
     weatherObj: { city: "", country: "", playlistType: "", temperature: 0 },
     loading: true,
   });
+  const [error, setError] = useState(false);
+
   const context = useContext(TemperatureContext);
 
   const getWeather = useCallback(async () => {
     try {
+      setError(false);
+
       if (lat !== undefined && lon !== undefined) {
         const response = await axios.get(`${WEATHER_URL}/${lat}/${lon}`);
 
@@ -25,6 +29,7 @@ const useWeather = (lat: number | string, lon: number | string) => {
       }
     } catch (error: any) {
       console.log(error.message);
+      if (error) setError(true);
     }
   }, [lat, lon]);
 
@@ -38,7 +43,7 @@ const useWeather = (lat: number | string, lon: number | string) => {
 
   const { weatherObj, loading } = weather;
 
-  return { weatherObj, loading };
+  return { weatherObj, loading, error };
 };
 
 export default useWeather;
