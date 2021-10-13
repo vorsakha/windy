@@ -44,7 +44,10 @@ interface SongBoxTypes {
     share: {
       snapchat: string;
     };
+    date?: string;
   };
+  fav?: boolean;
+  idx: number;
 }
 interface SongType {
   key: string;
@@ -56,4 +59,5 @@ interface SongType {
   share: {
     snapchat: string;
   };
+  data: string;
 }
