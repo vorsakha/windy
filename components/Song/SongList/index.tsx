@@ -6,7 +6,9 @@ const SongList = ({ playlistData }: SongListTypes) => {
     <ul>
       <>
         {playlistData.tracks.hits.map((listItem, idx) => (
-          <SongBox idx={idx} track={listItem.track} />
+          <React.Fragment key={idx}>
+            <SongBox track={listItem.track} />
+          </React.Fragment>
         ))}
       </>
     </ul>
