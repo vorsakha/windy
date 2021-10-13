@@ -8,12 +8,21 @@ const Favs = () => {
 
   return (
     <div>
+      {favoriteSongs !== null && favoriteSongs.length === 0 ? (
+        <p className="text-center">Sem músicas favoritas por enquanto...</p>
+      ) : (
+        <h1 className="text-center self-start font-bold text-2xl p-4 pt-8">
+          Minhas Músicas Favoritas
+        </h1>
+      )}
       {favoriteSongs === null ? (
         <LoadingSpinner />
       ) : (
-        favoriteSongs.map((listItem, idx) => (
-          <SongBox fav idx={idx} track={listItem} />
-        ))
+        <ul>
+          {favoriteSongs.map((listItem, idx) => (
+            <SongBox fav idx={idx} track={listItem} />
+          ))}
+        </ul>
       )}
     </div>
   );
