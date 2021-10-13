@@ -12,7 +12,11 @@ const Banner = ({ weatherObj, loading }: WeatherTypes) => {
         <div>
           <h1>{temperature}º</h1>
           <h2>
-            {city}, {country}
+            {city && (
+              <>
+                {city}, {country}
+              </>
+            )}
           </h2>
           <p>{playlistType}</p>
         </div>
