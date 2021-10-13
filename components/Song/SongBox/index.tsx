@@ -14,7 +14,7 @@ const SongBox = ({ track, fav, idx }: SongBoxTypes) => {
 
   return (
     <li key={index} className="relative">
-      {temperature === null ? (
+      {newTemperature === null || newTemperature === "" ? (
         <LoadingSpinner />
       ) : (
         <Fav
