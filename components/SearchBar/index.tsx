@@ -16,31 +16,28 @@ const SearchBar = () => {
           className="bg-gray-600 shadow-lg rounded px-6 sm:px-12 pt-6 pb-8 mb-4"
           onSubmit={(e) => handleSubmit(e)}
         >
-          <h1 className="text-2xl flex justify-center border-b-2 py-2 mb-4 border-gray-500">
-            Login
-          </h1>
           <input
             className="shadow text-gray-700 appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:ring ring-1 ring-black ring-opacity-5 mb-2"
             type="text"
-            name="email"
-            placeholder="Email"
+            name="lat"
+            placeholder="Latitude"
             onChange={(e) => handleInputChange(e)}
             value={lat}
             required
-            autoComplete="email"
+            autoComplete="lat"
           />
           <input
             className="shadow text-gray-700  appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:ring ring-1 ring-black ring-opacity-5 mb-2"
-            type="password"
-            name="password"
-            placeholder="Password"
+            type="text"
+            name="lon"
+            placeholder="Longitude"
             onChange={(e) => handleInputChange(e)}
             value={lon}
             required
-            autoComplete="current-password"
+            autoComplete="lon"
           />
           <div className="flex justify-center mt-2">
-            <Button type="submit">Login</Button>
+            <Button type="submit">Pesquisar</Button>
           </div>
         </form>
       </div>
