@@ -3,12 +3,22 @@ import { TemperatureContext } from "../../../context/TemperatureContext";
 import Fav from "../../Fav";
 
 const SongBox = ({ track, fav }: SongBoxTypes) => {
-  const { images, share, subtitle, title, key, date, city, temperature } =
-    track;
+  const {
+    images,
+    share,
+    subtitle,
+    title,
+    key,
+    date,
+    city,
+    temperature,
+    category,
+  } = track;
 
   const tempContext = useContext(TemperatureContext);
   const newTemperature = tempContext?.temperature?.temperature || "";
   const newCity = tempContext?.temperature?.city || "";
+  const newCategory = tempContext?.temperature?.playlistType || "";
 
   return (
     <li className="relative">
@@ -24,6 +34,7 @@ const SongBox = ({ track, fav }: SongBoxTypes) => {
             temperature: newTemperature,
             city: newCity,
             key,
+            category: newCategory,
           }}
         />
       )}
@@ -41,7 +52,8 @@ const SongBox = ({ track, fav }: SongBoxTypes) => {
           {fav ? (
             <div className="flex flex-col p-4">
               <p className="text-xl">{temperature}º</p>
-              <p>{city}</p>
+              <p className="text-md">{category}</p>
+              <p className="text-sm">{city}</p>
               <small className="font-light">{date}</small>
             </div>
           ) : (

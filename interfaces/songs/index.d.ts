@@ -47,6 +47,7 @@ interface SongBoxTypes {
     date?: string;
     city?: string;
     temperature?: number;
+    category?: string;
   };
   fav?: boolean;
 }
