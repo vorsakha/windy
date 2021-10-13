@@ -1,9 +1,14 @@
 import axios from "axios";
 import { useCallback, useContext, useEffect, useState } from "react";
 import { WEATHER_URL } from "../constants";
+import { LocalDataContext } from "../context/LocalDataContext";
 import { TemperatureContext } from "../context/TemperatureContext";
 
-const useWeather = (lat: number | string, lon: number | string) => {
+const useWeather = (
+  lat: number | string,
+  lon: number | string,
+  home?: boolean
+) => {
   const [weather, setWeather] = useState<WeatherTypes>({
     weatherObj: { city: "", country: "", playlistType: "", temperature: 0 },
     loading: true,
@@ -11,6 +16,7 @@ const useWeather = (lat: number | string, lon: number | string) => {
   const [error, setError] = useState(false);
 
   const context = useContext(TemperatureContext);
+  const localDataContext = useContext(LocalDataContext);
 
   const getWeather = useCallback(async () => {
     try {
@@ -36,7 +42,18 @@ const useWeather = (lat: number | string, lon: number | string) => {
   useEffect(() => {
     let mounted = true;
     if (mounted) {
-      getWeather();
+      if (home && localDataContext?.localWeather.city === "") {
+        getWeather();
+      } else if (!home) {
+        getWeather();
+      } else {
+        setWeather((prev: any) => {
+          return {
+            ...prev,
+            loading: false,
+          };
+        });
+      }
     }
     mounted = false;
   }, [getWeather]);
