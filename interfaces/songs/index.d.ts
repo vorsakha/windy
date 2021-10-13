@@ -45,6 +45,8 @@ interface SongBoxTypes {
       snapchat: string;
     };
     date?: string;
+    city?: string;
+    temperature?: number;
   };
   fav?: boolean;
   idx: number;
