@@ -20,7 +20,9 @@ const Favs = () => {
       ) : (
         <ul>
           {favoriteSongs.map((listItem, idx) => (
-            <SongBox fav idx={idx} track={listItem} />
+            <React.Fragment key={idx}>
+              <SongBox fav track={listItem} />
+            </React.Fragment>
           ))}
         </ul>
       )}
