@@ -1,19 +1,14 @@
 import React from "react";
-import LoadingSpinner from "../common/LoadingSpinner";
 import SongBox from "../common/SongBox";
 
-const SongList = ({ playlistData, loading }: SongListTypes) => {
+const SongList = ({ playlistData }: SongListTypes) => {
   return (
     <ul>
-      {loading && playlistData === null ? (
-        <LoadingSpinner />
-      ) : (
-        <>
-          {playlistData.tracks.hits.map((listItem) => (
-            <SongBox track={listItem.track} />
-          ))}
-        </>
-      )}
+      <>
+        {playlistData.tracks.hits.map((listItem, idx) => (
+          <SongBox idx={idx} track={listItem.track} />
+        ))}
+      </>
     </ul>
   );
 };
